@@ -1,0 +1,57 @@
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>title</title>
+<link rel="stylesheet" type="text/css" href="css/curelean.css" />
+</head>
+
+<body ng-app="MyApp" ng-controller="InscriptionController">
+	<div class="container">
+		<div class="rows">
+			<div class="col-8 offset-3">
+				<div class="card">
+					<div class="card-header bg-info text-white">Inscription d'un
+						etudiant</div>
+					<div class="card-body">
+						<div ng-if="form == true">
+							<div class="alert alert-dismissible alert-success">
+								<strong>Succes</strong> Enregistrement terminé avec succé <a href="#"
+									class="alert-link">Retouner a la page d'accueil</a>.
+							</div>
+						</div>
+						<div>
+							<form ng-if="form == false">
+								<div class="form-group">
+									<label>Noms:</label> <input type="text" ng-model="etudiant.nom"
+										class="form-control"
+										ng-class="{'is-invalid':errors.nom != null}" /> <small
+										ng-if="errors" class="invalid-feedback">{{errors.nom}}</small>
+								</div>
+								<div class="form-group">
+									<label>Prenoms:</label> <input type="text"
+										ng-model="etudiant.prenom" class="form-control"
+										ng-class="{'is-invalid':errors.prenom != null}" /> <small
+										ng-if="errors" class="invalid-feedback">{{errors.prenom}}</small>
+								</div>
+								<div class="form-group">
+									<label>Date naissance:</label> <input type="date"
+										ng-model="etudiant.dateNaissance" class="form-control"
+										ng-class="{'is-invalid':errors != null}" /> <small
+										ng-if="errors" class="invalid-feedback">{{errors.dateNaissance}}</small>
+								</div>
+								<button class="btn btn-info" type="submit"
+									ng-click="saveEtudiant()">Enregistrer</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/MyApp.js"></script>
+</body>
+
+</html>
